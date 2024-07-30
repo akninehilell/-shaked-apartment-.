@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דירת שקד - מידע מקיף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            float: right;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .resident {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .resident h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+        .plan {
+            margin-right: 20px;
+            margin-bottom: 15px;
+            border-left: 3px solid #4CAF50;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>דירת שקד - מידע מקיף</h1>
+        
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'residents')" id="defaultOpen">דיירים</button>
+            <button class="tablinks" onclick="openTab(event, 'schedule')">לוח זמנים</button>
+            <button class="tablinks" onclick="openTab(event, 'staff')">צוות הדירה</button>
+        </div>
+
+        <div id="residents" class="tabcontent">
+            <h2>דיירים</h2>
+            <div class="resident">
+                <h3>גיל אהרנפלד</h3>
+                <p><strong>מטרת על:</strong> דחיית סיפוקים והתמודדות עם תסכולים</p>
+                <h4>תוכניות:</h4>
+                <div class="plan">
+                    <p><strong>תחום:</strong> תפקודי</p>
+                    <p><strong>תכנית:</strong> עבודה על תקציב. נסיעות הזמנות לפי תקציב</p>
+                    <p><strong>פירוט:</strong> ישיבה על תקציב עם הרכז פעם בשבוע לפני יציאה לבית. בישיבה נחשב את התקציב ואת הכסף שאנו מוציאים לנסיעות ובזבוז בסופ"ש. חיסכון לקנייה שגיל ירצה.</p>
+                    <p><strong>מתי זה קורה?</strong> בבית קפה בזמן התעסוקה. ראשון - 16:30</p>
+                    <p><strong>מי מפעיל את התכנית:</strong> רכז</p>
+                </div>
+            </div>
+            
+            <div class="resident">
+                <h3>דוד ברקוביץ'</h3>
+                <p><strong>מטרת על:</strong> להרגיש מקובל ואהוב אפילו שהוא לא שייך לקבוצת החברים.</p>
+                <h4>תוכניות:</h4>
+                <div class="plan">
+                    <p><strong>תחום:</strong> תפקודי</p>
+                    <p><strong>תכנית:</strong> התארגנות יעילה + קילוף בטטות</p>
+                    <p><strong>פירוט:</strong> דוד יתארגן בבוקר ולקראת מקלחת בערב באופן זריז ויעיל, ע"י הפעלת סטופר ומשוב חיובי של המדריך + יקלף בטטות לארוחת ערב</p>
+                    <p><strong>מתי זה קורה?</strong> כל יום, חמישי ושלישי קילוף</p>
+                    <p><strong>מי מפעיל את התכנית:</strong> רכז/מדריך</p>
+                </div>
+            </div>
+            
+            <!-- Add more residents here following the same structure -->
+        </div>
+
+        <div id="schedule" class="tabcontent">
+            <h2>לוח זמנים של הדירה</h2>
+            <p>כאן יופיע לוח הזמנים של הדירה. ניתן להוסיף טבלה או רשימה מפורטת של פעילויות יומיות/שבועיות.</p>
+        </div>
+
+        <div id="staff" class="tabcontent">
+            <h2>צוות הדירה</h2>
+            <p>כאן יופיע מידע על צוות הדירה, כולל שמות, תפקידים, ופרטי קשר (אם רלוונטי).</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>
